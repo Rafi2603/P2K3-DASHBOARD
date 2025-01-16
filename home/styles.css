@@ -1,0 +1,220 @@
+/* Gaya dasar untuk tabel dan halaman */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f9; /* Warna latar belakang */
+  color: #333;
+}
+
+.container {
+  max-width: 1200px; /* Ubah ukuran maksimal sesuai kebutuhan */
+  margin: 30px auto; /* Atur margin agar tetap di tengah */
+  padding: 30px; /* Perbesar padding untuk menambahkan ruang di dalam container */
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #ffffff;
+}
+
+table th, table td {
+  padding: 15px;
+  text-align: center;
+  border: 2px solid #0047AB;
+}
+
+table th {
+  background-color: #0047AB;
+  color: white;
+  text-transform: uppercase;
+}
+
+table td {
+  background-color: #E8F4FF;
+}
+
+table tr:hover td {
+  background-color: #CDE6FF;
+}
+
+/* Modal */
+.modal {
+  display: none; /* Hidden secara default */
+  position: fixed;
+  z-index: 9999; /* Pastikan modal berada di atas elemen lain */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang gelap */
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative; /* Tetap berada di tengah modal */
+  z-index: 10000; /* Tambahkan ini jika diperlukan */
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007BFF; /* Warna biru */
+  padding: 10px 20px;
+  z-index: 1000; /* Tetap lebih rendah dari modal */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+.navbar-logo {
+  height: 60px;
+  width: auto;
+  margin-right: 20px;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #FF5733;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout-btn:hover {
+  background-color: #e04d2b;
+}
+
+/* Tombol Navigasi */
+.navbar ul li img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Gaya Tombol Tindakan */
+button.edit-btn,
+button.edit-btn-personel,
+button.edit-btn-rekap,
+button.delete-btn,
+button.delete-btn-personel, 
+button.delete-btn-rekap {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+
+button.edit-btn,
+button.edit-btn-personel,
+button.edit-btn-rekap {
+  background-color: #007BFF;
+}
+
+button.edit-btn:hover,
+button.edit-btn-personel:hover,
+button.edit-btn-rekap:hover {
+  background-color: #0056b3;
+}
+
+button.delete-btn,
+button.delete-btn-personel, 
+button.delete-btn-rekap {
+  background-color: #FF5733;
+}
+
+button.delete-btn:hover
+button.delete-btn-personel:hover, 
+button.delete-btn-rekap:hover {
+  background-color: #c0392b;
+}

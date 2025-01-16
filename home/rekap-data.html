@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DASHBOARD P2K3 JASAMARGA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <ul>
+        <li>
+          <img src="Logo Jasa Marga.png" alt="Logo Perusahaan" class="navbar-logo"> <!-- Logo Perusahaan -->
+        </li>
+        <li><a href="#struktur">Struktur Organisasi</a></li>
+        <li><a href="#personel">Personel Ahli K3</a></li>
+        <li><a href="#rekap">Rekap Data K3</a></li>
+        <li><a href="#kecelakaan">Kecelakaan K3</a></li>
+      </ul>
+      <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+
+  <div class="container">
+    <h1 id="struktur">STRUKTUR ORGANISASI</h1>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" id="search-bar-struktur" placeholder="Search Bar" />
+      <!-- Tombol Tambah -->
+      <button id="add-data-btn-struktur">Tambah Data</button>
+      <!-- Tombol Export -->
+      <button id="export-csv-btn-struktur">Export CSV</button>
+    </div>
+
+    <!-- TABEL STRUKTUR ORGANISASI -->
+    <table>
+        <thead>
+          <tr>
+            <th data-order="asc">Nama</th>
+            <th data-order="asc">Jabatan</th>
+            <th data-order="asc">Posisi</th>
+            <th data-order="asc">Tanggal Input</th>
+            <th>Action Menu</th>
+          </tr>
+        </thead>
+        <tbody id="table-body-struktur">
+          <!-- Data akan dimasukkan di sini -->
+        </tbody>
+      </table>
+    
+    <h1 id="personel">PERSONEL AHLI K3 & P3K</h1>
+        <!-- Search Bar -->   
+        <div class="search-container">
+            <input type="text" id="search-bar-personel" placeholder="Search Bar" />
+            <!-- Tombol Tambah -->
+            <button id="add-data-btn-personel">Tambah Data</button>
+            <!-- Tombol Export -->
+            <button id="export-csv-btn-personel">Export CSV</button>
+        </div>
+
+        <!-- TABEL PERSONEL AHLI K3 & P3K -->
+        <table>
+            <thead>
+              <tr>
+                <th data-order="asc">Nama</th>
+                <th data-order="asc">Keahlian</th>
+                <th data-order="asc">Batas Masa Berlaku</th>
+                <th>Action Menu</th>
+              </tr>
+            </thead>
+            <tbody id="table-body-personel">
+              <!-- Data akan dimasukkan di sini -->
+            </tbody>
+          </table>
+    
+    <h1 id="rekap">REKAP DATA K3</h1>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search-bar-rekap" placeholder="Search Bar" />
+            <!-- Tombol Tambah -->
+            <button id="add-data-btn-rekap">Tambah Data</button>
+            <!-- Tombol Export -->
+            <button id="export-csv-btn-rekap">Export CSV</button>
+        </div>
+        <div style="overflow-x: auto;">
+            <table class="table table-striped table-bordered table-hover">
+            <thead>
+             <tr>
+                <th data-order="asc">Tahun</th>
+                <th data-order="asc">Bulan</th>
+                <th data-order="asc">Jumlah Karyawan</th>
+                <th data-order="asc">Jumlah Hari Kerja</th>
+                <th data-order="asc">Jumlah Jam Kerja</th>
+                <th data-order="asc">Kecelakaan Berat</th>
+                <th data-order="asc">Kecelakaan Ringan</th>
+                <th data-order="asc">Kecelakaan Meninggal</th>
+                <th data-order="asc">Near Miss</th>
+                <th data-order="asc">Fire Accident</th>
+                <th data-order="asc">Damaged Property</th>
+                <th data-order="asc">Jumlah Hari Hilang</th>
+                <th data-order="asc">Jumlah Hari Tanpa Hilang</th>
+                <th data-order="asc">LTI</th>
+                <th data-order="asc">Man Hour</th>
+                <th data-order="asc">Frequency Rate</th>
+                <th data-order="asc">Severity Rate</th>
+                <th data-order="asc">Inchident rate</th>
+                <th data-order="asc">ATLR</th>
+                <th data-order="asc">Action Menu</th>
+             </tr>
+            </thead>
+            <tbody id="table-body-rekap">
+             <!-- Data akan dimasukkan di sini -->
+            </tbody>
+        </table>
+        </div>
+        
+
+    <h1 id="kecelakaan">KECELAKAAN K3</h1>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search-bar-kecelakaan" placeholder="Search Bar" />
+            <!-- Tombol Tambah -->
+            <button id="add-data-btn-kecelakaan">Tambah Data</button>
+            <!-- Tombol Export -->
+            <button id="export-csv-btn-kecelakaan">Export CSV</button>
+        </div>
+        <table>
+            <thead>
+             <tr>
+              <th data-order="asc">Nama</th>
+              <th data-order="asc">Keahlian</th>
+              <th data-order="asc">Batas Masa Berlaku</th>
+              <th>Action Menu</th>
+             </tr>
+            </thead>
+            <tbody id="table-body-kecelakaan">
+             <!-- Data akan dimasukkan di sini -->
+            </tbody>
+        </table>        
+
+  </div>
+
+  <!-- Modal Tambah Data STRUKTUR -->
+  <div id="add-data-modal-struktur" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal-struktur">&times;</span>
+      <h2>Tambah Data Baru</h2>
+      <form id="add-data-form-struktur">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+        <label for="jabatan">Jabatan:</label>
+        <input type="text" id="jabatan" name="jabatan" required>
+        <label for="posisi">Posisi:</label>
+        <input type="text" id="posisi" name="posisi" required>
+        <button type="submit">Tambah</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Edit Data STRUKTUR -->
+<div id="edit-data-modal-struktur" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-edit-modal-struktur">&times;</span>
+      <h2>Edit Data</h2>
+      <form id="edit-data-form-struktur">
+        <input type="hidden" id="edit-id" name="struktur_id" />
+        <label for="edit-nama">Nama:</label>
+        <input type="text" id="edit-nama" name="nama" required>
+        <label for="edit-jabatan">Jabatan:</label>
+        <input type="text" id="edit-jabatan" name="jabatan" required>
+        <label for="edit-posisi">Posisi:</label>
+        <input type="text" id="edit-posisi" name="posisi" required>
+        <button type="submit">Perbarui</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Data PERSONEL -->
+  <div id="add-data-modal-personel" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal-personel">&times;</span>
+      <h2>Tambah Data Personel Ahli K3</h2>
+      <form id="add-data-form-personel">
+        <label for="nama-personel">Nama:</label>
+        <input type="text" id="nama-personel" name="nama" required>
+        <label for="keahlian-personel">Keahlian:</label>
+        <input type="text" id="keahlian-personel" name="keahlian" required>
+        <label for="batas-masa-berlaku-personel">Batas Masa Berlaku:</label>
+        <input type="date" id="batas-masa-berlaku-personel" name="batas_masa_berlaku" required>
+        <button type="submit">Tambah</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Edit Data PERSONEL -->
+  <div id="edit-data-modal-personel" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-edit-modal-personel">&times;</span>
+      <h2>Edit Data Personel Ahli K3</h2>
+      <form id="edit-data-form-personel">
+        <input type="hidden" id="edit-id-personel" name="personel_id" />
+        <label for="edit-nama-personel">Nama:</label>
+        <input type="text" id="edit-nama-personel" name="nama" required>
+        <label for="edit-keahlian-personel">Keahlian:</label>
+        <input type="text" id="edit-keahlian-personel" name="keahlian" required>
+        <label for="edit-batas-masa-berlaku">Batas Masa Berlaku:</label>
+        <input type="date" id="edit-batas-masa-berlaku-personel" name="batas_masa_berlaku" required>
+        <button type="submit">Perbarui</button>
+      </form>
+    </div>
+  </div>
+  
+<!-- Modal Tambah Data REKAP-->
+<div id="add-data-modal-rekap" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-modal-rekap">&times;</span>
+    <h2>Tambah Data Rekap K3</h2>
+    <form id="add-data-form-rekap">
+      <label for="tahun">Tahun:</label>
+      <input type="number" id="tahun" name="tahun" required>
+      <label for="bulan">Bulan:</label>
+      <input type="text" id="bulan" name="bulan" required>
+      <label for="jumlah-karyawan">Jumlah Karyawan:</label>
+      <input type="number" id="jumlah-karyawan" name="jumlah_karyawan" required>
+      <label for="jumlah-hari-kerja">Jumlah Hari Kerja:</label>
+      <input type="number" id="jumlah-hari-kerja" name="jumlah_hari_kerja" required>
+      <label for="kecelakaan-berat">Kecelakaan Berat:</label>
+      <input type="number" id="kecelakaan-berat" name="kecelakaan_berat" required>
+      <label for="kecelakaan-ringan">Kecelakaan Ringan:</label>
+      <input type="number" id="kecelakaan-ringan" name="kecelakaan_ringan" required>
+      <label for="kecelakaan-meninggal">Kecelakaan Meninggal:</label>
+      <input type="number" id="kecelakaan-meninggal" name="kecelakaan_meninggal" required>
+      <label for="near-miss">Near Miss:</label>
+      <input type="number" id="near-miss" name="near_miss" required>
+      <label for="fire-accident">Fire Accident:</label>
+      <input type="number" id="fire-accident" name="fire_accident" required>
+      <label for="damaged-property">Damaged Property:</label>
+      <input type="number" id="damaged-property" name="damaged_property" required>
+      <label for="jumlah-hari-hilang">Jumlah Hari Hilang:</label>
+      <input type="number" id="jumlah-hari-hilang" name="jumlah_hari_hilang" required>
+
+      <button type="submit">Tambah</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Update Data REKAP -->
+<div id="edit-data-modal-rekap" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-edit-modal-rekap">&times;</span>
+    <h2>Update Data Rekap K3</h2>
+    <form id="edit-data-form-rekap">
+      <input type="hidden" id="edit-id-rekap" name="rekapdata_id">
+      <label for="edit-tahun">Tahun:</label>
+      <input type="number" id="edit-tahun" name="tahun" required>
+      <label for="edit-bulan">Bulan:</label>
+      <input type="text" id="edit-bulan" name="bulan" required>
+
+      <label for="edit-jumlah-karyawan">Jumlah Karyawan:</label>
+      <input type="number" id="edit-jumlah-karyawan" name="jumlah_karyawan" required>
+      <label for="edit-jumlah-hari-kerja">Jumlah Hari Kerja:</label>
+      <input type="number" id="edit-jumlah-hari-kerja" name="jumlah_hari_kerja" required>
+
+      <label for="edit-kecelakaan-berat">Kecelakaan Berat:</label>
+      <input type="number" id="edit-kecelakaan-berat" name="kecelakaan_berat" required>
+      <label for="edit-kecelakaan-ringan">Kecelakaan Ringan:</label>
+      <input type="number" id="edit-kecelakaan-ringan" name="kecelakaan_ringan" required>
+      <label for="edit-kecelakaan-meninggal">Kecelakaan Meninggal:</label>
+      <input type="number" id="edit-kecelakaan-meninggal" name="kecelakaan_meninggal" required>
+      <label for="edit-near-miss">Near Miss:</label>
+      <input type="number" id="edit-near-miss" name="near_miss" required>
+      <label for="edit-fire-accident">Fire Accident:</label>
+      <input type="number" id="edit-fire-accident" name="fire_accident" required>
+      <label for="edit-damaged-property">Damaged Property:</label>
+      <input type="number" id="edit-damaged-property" name="damaged_property" required>
+      <label for="edit-jumlah-hari-hilang">Jumlah Hari Hilang:</label>
+      <input type="number" id="edit-jumlah-hari-hilang" name="jumlah_hari_hilang" required>
+
+
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+  <script>
+      // Fungsi logout
+      function handleLogout() {
+      alert("Logout berhasil");
+      // Tambahkan logika logout seperti penghapusan sesi di sini
+      window.location.href = "/public/index.html"; // Redirect ke halaman login
+    }
+  </script>
+
+  <script src="rekap-data.js"></script>
+</body>
+</html>
