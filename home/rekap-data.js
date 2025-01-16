@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fetch data Struktur Organisasi
-  fetch("https://server-7717-610595966616.asia-southeast2.run.app/getstruktur")
+  fetch("http://localhost:3000/getstruktur")
      .then((response) => response.json())
      .then((data) => {
         currentData = data.data || [];
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
      });
 
   // Fetch data Personel Ahli K3
-  fetch("https://server-7717-610595966616.asia-southeast2.run.app/getpersonel")
+  fetch("http://localhost:3000/getpersonel")
      .then((response) => response.json())
      .then((data) => {
         personelData = data.data || [];
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
      });
 
   // Fetch data Personel Ahli K3
-  fetch("https://server-7717-610595966616.asia-southeast2.run.app/getrekap")
+  fetch("http://localhost:3000/getrekap")
      .then((response) => response.json())
      .then((data) => {
       rekapData = data.data || [];
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
            // Confirm Delete
            if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-              fetch(`https://server-7717-610595966616.asia-southeast2.run.app/deletestruktur`, {
+              fetch(`http://localhost:3000/deletestruktur`, {
                     method: "DELETE",
                     headers: {
                        "Content-Type": "application/json",
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
            // Konfirmasi sebelum menghapus data
            if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-              fetch(`https://server-7717-610595966616.asia-southeast2.run.app/deletepersonel`, {
+              fetch(`http://localhost:3000/deletepersonel`, {
                     method: "DELETE",
                     headers: {
                        "Content-Type": "application/json",
@@ -356,7 +356,7 @@ function renderTableRekap(data) {
 
       // Confirm Delete
       if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-        fetch(`https://server-7717-610595966616.asia-southeast2.run.app/deleterekap`, {
+        fetch(`http://localhost:3000/deleterekap`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -425,7 +425,7 @@ function renderTableRekap(data) {
         posisi: document.getElementById("posisi").value,
      };
 
-     fetch("https://server-7717-610595966616.asia-southeast2.run.app/addstruktur", {
+     fetch("http://localhost:3000/addstruktur", {
            method: "POST",
            headers: {
               "Content-Type": "application/json",
@@ -459,7 +459,7 @@ function renderTableRekap(data) {
         batas_masa_berlaku: document.getElementById("batas-masa-berlaku-personel").value,
      };
 
-     fetch("https://server-7717-610595966616.asia-southeast2.run.app/addpersonel", {
+     fetch("http://localhost:3000/addpersonel", {
            method: "POST",
            headers: {
               "Content-Type": "application/json",
@@ -502,7 +502,7 @@ function renderTableRekap(data) {
           jumlah_hari_hilang: document.getElementById("jumlah-hari-hilang").value,
       };
   
-      fetch("https://server-7717-610595966616.asia-southeast2.run.app/addrekap", {
+      fetch("http://localhost:3000/addrekap", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -554,7 +554,7 @@ function renderTableRekap(data) {
         posisi: document.getElementById("edit-posisi").value,
       };
   
-      fetch("https://server-7717-610595966616.asia-southeast2.run.app/updatestruktur", {
+      fetch("http://localhost:3000/updatestruktur", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -589,7 +589,7 @@ function renderTableRekap(data) {
         batas_masa_berlaku: document.getElementById("edit-batas-masa-berlaku-personel").value,
      };
 
-     fetch("https://server-7717-610595966616.asia-southeast2.run.app/updatepersonel", {
+     fetch("http://localhost:3000/updatepersonel", {
            method: "PUT",
            headers: {
               "Content-Type": "application/json",
@@ -633,7 +633,7 @@ function renderTableRekap(data) {
     jumlah_hari_hilang: document.getElementById("edit-jumlah-hari-hilang").value,
   };
 
-  fetch("https://server-7717-610595966616.asia-southeast2.run.app/updaterekap", {
+  fetch("http://localhost:3000/updaterekap", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
